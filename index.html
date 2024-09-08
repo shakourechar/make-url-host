@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed URL</title>
+</head>
+<body>
+    <h1>Your Processed Link</h1>
+    <p id="url-display"></p>
+    
+    <script>
+        // Get the URL parameter from the query string
+        const params = new URLSearchParams(window.location.search);
+        const finalURL = params.get('url');
+
+        // Display the URL as a clickable link
+        if (finalURL) {
+            const urlDisplay = document.getElementById('url-display');
+            urlDisplay.innerHTML = `<a href="${decodeURIComponent(finalURL)}" target="_blank">Click here to view the page</a>`;
+        } else {
+            document.getElementById('url-display').innerText = "No URL provided.";
+        }
+    </script>
+</body>
+</html>
